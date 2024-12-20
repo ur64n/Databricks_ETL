@@ -17,6 +17,7 @@ This project demonstrates skills in building and configuring a complete data pip
 
 ## Repository Structure
 
+```
 main
 ├── additional_databrick_pyspark_queries
 │   ├── environment_test_configuratio.dbc
@@ -27,6 +28,7 @@ main
 │   ├── transform_analyze_virgin_galactic_data.py
 │   ├── visualize_virgin_galactic_stock_data.py
 ├── README.md
+```
 
 ## Result plotly Visualistations
 
