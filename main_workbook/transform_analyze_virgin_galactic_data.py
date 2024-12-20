@@ -6,9 +6,7 @@ from pyspark.sql.window import Window
 # Initialize Spark session
 spark = SparkSession.builder.appName("Virgin Galactic Transformation").getOrCreate()
 
-# -----------------------
 # Load Processed Data
-# -----------------------
 
 # Load Virgin Galactic stock data
 stock_data = spark.read.format("delta").load("dbfs:/processed/virgin_stock_data")
@@ -16,18 +14,16 @@ stock_data = spark.read.format("delta").load("dbfs:/processed/virgin_stock_data"
 # Load Virgin Galactic launch data
 launch_data = spark.read.format("delta").load("dbfs:/processed/virgin_launch_data")
 
-# -----------------------
 # Data Transformation
-# -----------------------
 
-# Step 1: Prepare stock data
+#  Prepare stock data
 stock_data = (
     stock_data
     .withColumn("Date", to_date(col("Date"), "yyyy-MM-dd"))  # Ensure Date column is in date format
     .orderBy(col("Date"))
 )
 
-# Step 2: Prepare launch data
+# Prepare launch data
 launch_data = (
     launch_data
     .withColumnRenamed("net", "LaunchDate")
@@ -36,7 +32,7 @@ launch_data = (
     .orderBy(col("LaunchDate"))
 )
 
-# Step 3: Add launch flag to stock data
+# Add launch flag to stock data
 stock_with_launch_flag = (
     stock_data
     .join(launch_data.select(col("LaunchDate"), col("name").alias("RocketName"), col("success")), 
@@ -44,7 +40,7 @@ stock_with_launch_flag = (
     .withColumn("is_launch_day", expr("CASE WHEN RocketName IS NOT NULL THEN 1 ELSE 0 END"))
 )
 
-# Step 4: Calculate stock movement
+# Calculate stock movement
 window_spec = Window.orderBy(col("Date"))
 
 stock_with_movement = (
@@ -55,7 +51,7 @@ stock_with_movement = (
     .withColumn("price_volatility", abs(col("Close") - col("Open")))
 )
 
-# Step 5: Monthly impact analysis
+# Monthly impact analysis
 monthly_impact = (
     stock_with_movement
     .groupBy(expr("DATE_FORMAT(Date, 'yyyy-MM')").alias("month"))
@@ -67,7 +63,7 @@ monthly_impact = (
     .orderBy("month")
 )
 
-# Step 6: Period comparison (2018 and 2020)
+# Period comparison (2018 and 2020)
 period_comparison = (
     stock_with_movement
     .withColumn("period", expr("CASE WHEN year(Date) IN (2018, 2020) THEN 'intensive' ELSE 'normal' END"))
@@ -78,7 +74,7 @@ period_comparison = (
     )
 )
 
-# Step 7: Pre/post launch volume analysis
+# Pre/post launch volume analysis
 pre_post_volume = (
     stock_with_movement
     .withColumn("volume_period", expr(
@@ -90,7 +86,7 @@ pre_post_volume = (
     .agg(avg("Volume").alias("avg_volume"))
 )
 
-# Step 8: Launch frequency and stability
+# Launch frequency and stability
 launch_frequency = (
     launch_data
     .withColumn("next_launch_gap", lag("LaunchDate", -1).over(Window.orderBy("LaunchDate")))
@@ -98,10 +94,6 @@ launch_frequency = (
     .groupBy("success")
     .agg(avg("days_between_launches").alias("avg_days_between_launches"))
 )
-
-# -----------------------
-# Save Transformed Data
-# -----------------------
 
 # Save stock with movement data
 stock_with_movement.write.format("delta").mode("overwrite").option("mergeSchema", "true").save("dbfs:/processed/virgin_stock_movement")
