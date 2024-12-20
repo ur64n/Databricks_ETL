@@ -32,3 +32,32 @@ main
 
 ## Result plotly Visualistations
 
+## Charts Overview
+
+Here are the visualizations created during the analysis, highlighting the stock performance of Virgin Galactic in relation to its launch activity:
+
+### 1. Virgin Galactic Stock Movement with Launch Days
+This line chart shows the Virgin Galactic stock price trend over time, with markers highlighting the days when launches occurred. The data distinguishes between launch days (in red) and non-launch days (in blue).
+
+![Virgin Galactic Stock Movement with Launch Days](https://github.com/ur64n/Databricks_ETL/blob/main/charts/chart.png)
+
+---
+
+### 2. Monthly Average Percent Change and Launch Count
+This bar chart visualizes the average percentage change in Virgin Galactic's stock price on a monthly basis, alongside the number of launches per month. It helps identify how stock performance correlates with launch activity over time.
+
+![Monthly Average Percent Change and Launch Count](https://github.com/ur64n/Databricks_ETL/blob/main/charts/chart2.png)
+
+---
+
+### 3. Period Comparison: Intensive vs Normal
+This bar chart compares the average percent change in stock price during "intensive" periods (2018 and 2020) of high launch frequency versus "normal" periods. It reveals the relative market impact of frequent launches.
+
+![Period Comparison: Intensive vs Normal](https://github.com/ur64n/Databricks_ETL/blob/main/charts/chart3.png)
+
+---
+
+### 4. Launch Frequency and Stability
+This bar chart illustrates the average number of days between launches, grouped by successful and unsuccessful launches. It highlights the stability or irregularity of launch scheduling and its relation to success.
+
+![Launch Frequency and Stability](https://github.com/ur64n/Databricks_ETL/blob/main/charts/chart4.png)
