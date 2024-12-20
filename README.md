@@ -19,10 +19,10 @@ This project demonstrates skills in building and configuring a complete data pip
 
 ```
 main
-├── additional_databrick_pyspark_queries
-│   ├── environment_test_configuratio.dbc
+├── additional_databrick_pyspark_queries                # Additional queries used in project
+│   ├── environment_test_configuration.dbc
 │   ├── queries_for_managing_data.py
-├── main_workbook
+├── main_workbook                                       # All files for ETL pipeline
 │   ├── extract_api_data.py
 │   ├── load_clean_and_prepare_virgin_galactic_data.py
 │   ├── transform_analyze_virgin_galactic_data.py
