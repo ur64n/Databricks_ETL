@@ -1,7 +1,7 @@
 ## Description
-This project explores the correlation between rocket launches by Virgin Galactic and Virgin Orbit and changes in Virgin Galactic's stock value (SPCE). Using an ETL pipeline in Databricks, the analysis combines data on rocket launches from The Space Devs API and stock market data from YFinance. The project delivers insights through data transformations, aggregations, and visualizations, highlighting potential market trends triggered by space-related events. 🚀📊
+This project explores the correlation between test rocket launches by Virgin Galactic and changes in Virgin Galactic's stock value (SPCE). Using an ETL pipeline in Databricks, the analysis combines data on rocket launches from The Space Devs API and stock market data from YFinance. The project delivers insights through data transformations, aggregations, and visualizations, highlighting potential market trends triggered by space-related events. 🚀📊
 
-Additionally, this project demonstrates skills in building and configuring a complete data pipeline environment in Databricks, including:
+This project demonstrates skills in building and configuring a complete data pipeline environment in Databricks, including cloud environment:
 
 - Cluster Pool configuration for efficient resource management.
 - Integration with Azure Data Lake Storage Gen 2 for scalable data storage.
@@ -9,6 +9,7 @@ Additionally, this project demonstrates skills in building and configuring a com
 - Use of SAS Tokens and Azure Key Vault for secure credential management.
 - Implementation of Databricks Secret Scopes for sensitive data handling.
 - Utilization of DBFS (Database File System) and Cluster-Scoped Credentials for seamless data processing.
+- Scheduled job with notifications.
 
 ### Data Sources:
 - **The Space Devs API** for rocket launch data.
@@ -21,3 +22,4 @@ Additionally, this project demonstrates skills in building and configuring a com
 - **`visualizations/`**: Output charts and plots for insights.
 
 ## Result plotly Visualistations
+
