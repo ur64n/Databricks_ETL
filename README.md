@@ -17,9 +17,16 @@ This project demonstrates skills in building and configuring a complete data pip
 
 ## Repository Structure
 
-- **`notebooks/`**: Contains Databricks notebooks for each step of the ETL pipeline.
-- **`data/`**: Sample data files used for testing.
-- **`visualizations/`**: Output charts and plots for insights.
+main
+├── additional_databrick_pyspark_queries
+│   ├── environment_test_configuratio.dbc
+│   ├── queries_for_managing_data.py
+├── main_workbook
+│   ├── extract_api_data.py
+│   ├── load_clean_and_prepare_virgin_galactic_data.py
+│   ├── transform_analyze_virgin_galactic_data.py
+│   ├── visualize_virgin_galactic_stock_data.py
+├── README.md
 
 ## Result plotly Visualistations
 
