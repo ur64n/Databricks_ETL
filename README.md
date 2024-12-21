@@ -1,5 +1,3 @@
-Dodac info jak uruchomić ten pipeline u siebie
-
 ## Description
 This project explores the correlation between test rocket launches by Virgin Galactic and changes in Virgin Galactic's stock value (SPCE). Using an ETL pipeline in Databricks, the analysis combines data on rocket launches from The Space Devs API and stock market data from YFinance. The project delivers insights through data transformations, aggregations, and visualizations, highlighting potential market trends triggered by space-related events. 🚀📊
 
