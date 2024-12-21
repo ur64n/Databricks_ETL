@@ -7,11 +7,15 @@ This project demonstrates skills in building and configuring a complete data pip
 
 - Cluster Pool configuration for efficient resource management.
 - Integration with Azure Data Lake Storage Gen 2 for scalable data storage.
-- Setup of Azure Active Directory and Service Principal for secure access control.
+- Setup of Azure Entra ID and Service Principal for secure access control.
 - Use of SAS Tokens and Azure Key Vault for secure credential management.
 - Implementation of Databricks Secret Scopes for sensitive data handling.
 - Utilization of DBFS (Database File System) and Cluster-Scoped Credentials for seamless data processing.
 - Scheduled job with notifications.
+
+## Instruction
+
+To run queries, you must first configure azure databricks in a premium subscription and configure Entra ID, Service Principal, Azure Data Lake Storage gen2, create containers, generate SAS Token, create Key Vault, implement Secret Scope for notebooks and configure Databricks File System. Then use the codes from the “main_workbook” folder in the notebooks.
 
 ### Data Sources:
 - **The Space Devs API** for rocket launch data.
